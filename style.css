@@ -175,3 +175,8 @@ footer a { color: var(--muted); }
   body { font-size: 16px; }
   .lede { font-size: 18px; }
 }
+
+/* Provider badges, matching the app's menu bar */
+.badge { display: inline-flex; align-items: center; justify-content: center; min-width: 1.25em; height: 1.25em; padding: 0 .2em; border-radius: .3em; color: #fff; font-weight: 800; font-size: .8em; line-height: 1; vertical-align: .08em; }
+.badge-claude { background: #ED9940; }
+.badge-codex { background: #6B7380; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .62em; letter-spacing: -.04em; }
