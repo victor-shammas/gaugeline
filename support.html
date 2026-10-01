@@ -46,6 +46,10 @@
       <p>macOS 15 or later, plus Claude Code signed in with a Claude Pro or Max plan and/or Codex signed in with a ChatGPT plan. Both tools only report usage limits for subscription plans. If you use an API key, there are no 5-hour or weekly limits to show.</p>
     </details>
     <details>
+      <summary>Does it work with the Claude desktop app or claude.ai?</summary>
+      <p>Not on their own. Gaugeline gets your Claude limits from Claude Code, the command-line tool, which reports them after each reply. The Claude desktop and web apps don't share them with other apps. Your limits are shared across all of them, though, so usage in the desktop app or on claude.ai shows up in Gaugeline the next time Claude Code replies. Until then the numbers are dimmed as "Last updated by Claude Code …".</p>
+    </details>
+    <details>
       <summary>Does Gaugeline need an internet connection?</summary>
       <p>No. Gaugeline makes no network connections at all; it doesn't even have permission to. It only reads files that Claude Code and Codex save on your Mac, in folders you choose.</p>
     </details>
