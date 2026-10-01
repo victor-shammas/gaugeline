@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Support · Gaugeline</title>
+<meta name="description" content="Gaugeline support: setup, troubleshooting, removal and FAQ for the AI usage-limits menu bar app.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Gaugeline</a>
+    <nav class="nav" aria-label="Main">
+      <a href="./" class="hide-sm">Home</a>
+      <a href="support.html" aria-current="page">Support</a>
+      <a href="privacy.html">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap narrow">
+    <h1>Support</h1>
+    <p>Something not working? The answers below cover almost everything. If not, email <a href="mailto:victor.shammas@gmail.com?subject=Gaugeline%20support">victor.shammas@gmail.com</a>. I read every message.</p>
+    <ul class="toc">
+      <li><a href="#start">Getting started</a></li>
+      <li><a href="#claude">Claude Code</a></li>
+      <li><a href="#remove">Removing Gaugeline from Claude Code</a></li>
+      <li><a href="#codex">Codex</a></li>
+      <li><a href="#numbers">Numbers &amp; alerts</a></li>
+      <li><a href="#demo">Demo mode</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <h2 id="start">Getting started</h2>
+    <details open>
+      <summary>Where is the app? I don't see a window.</summary>
+      <p>Gaugeline lives in the menu bar, at the top-right of your screen, and has no Dock icon. Before setup it shows a small gauge icon; once connected it shows your numbers, for example <strong>C</strong> 5h 42% 7d 81% <strong>X</strong> 5h 93% 7d 41% (C is Claude, X is Codex). Click it to open the menu. <em>Settings…</em> is at the bottom of the menu, or press <kbd>⌘,</kbd> while the menu is open. If you have many menu bar items, it may be hidden behind the notch; quit a few other menu bar apps or use a menu bar manager.</p>
+    </details>
+    <details>
+      <summary>What do I need?</summary>
+      <p>macOS 15 or later, plus Claude Code signed in with a Claude Pro or Max plan and/or Codex signed in with a ChatGPT plan. Both tools only report usage limits for subscription plans. If you use an API key, there are no 5-hour or weekly limits to show.</p>
+    </details>
+    <details>
+      <summary>Does Gaugeline need an internet connection?</summary>
+      <p>No. Gaugeline makes no network connections at all; it doesn't even have permission to. It only reads files that Claude Code and Codex save on your Mac, in folders you choose.</p>
+    </details>
+    <details>
+      <summary>How do I bring back the welcome guide?</summary>
+      <p>Settings › About › Welcome guide › <em>Show Again…</em></p>
+    </details>
+    <details>
+      <summary>Can I show only Claude, only Codex, or only some limits?</summary>
+      <p>Yes. Settings › General › Services has a switch for <em>Claude</em> and one for <em>Codex</em>: turning a service off hides it everywhere. Next to each are <em>5-hour</em> and <em>Weekly</em> checkboxes that choose which limits appear in the menu bar; the dropdown always shows every limit.</p>
+      <p>Settings › General › Menu Bar sets the look. <em>Style</em>: <em>All windows</em>, <em>Most-used window only</em> or <em>Gauges</em>. <em>Numbers</em>: <em>Percent used</em> or <em>Percent remaining</em>. The <em>Preview</em> row shows the result. Gaugeline follows your Mac's light or dark appearance automatically.</p>
+    </details>
+
+    <h2 id="claude">Claude Code</h2>
+    <details open>
+      <summary>How does connecting Claude Code work?</summary>
+      <p>Claude Code can run a <a href="https://code.claude.com/docs/en/statusline">status line command</a> after each reply, and it hands that command your current usage limits. Gaugeline adds a small command there that saves those numbers to a file Gaugeline can read.</p>
+      <ol>
+        <li>Settings › Claude › <em>Grant Access…</em> (or <em>Add to Claude Code…</em> in the welcome window).</li>
+        <li>In the folder panel, select your <code>.claude</code> folder and click <em>Grant Access</em>.</li>
+        <li>A sheet shows exactly what will be added to <code>~/.claude/settings.json</code>. Click <em>Add to Claude Code</em>, or <em>Copy Instead</em> to add it yourself, or <em>Cancel</em>. Nothing changes until you click <em>Add to Claude Code</em>.</li>
+        <li>Send any message in Claude Code. Your limits appear after the reply.</li>
+      </ol>
+      <p>Prefer to do it by hand? Use <em>Set up manually</em> in Settings › Claude (or <em>Set up manually instead</em> in the welcome window) and paste the snippet it shows.</p>
+    </details>
+    <details>
+      <summary>It says "Waiting for Claude Code"</summary>
+      <p>That's normal right after setup. Claude Code hands its usage numbers to the status line command <strong>after each reply</strong>, so Gaugeline has nothing to show until then.</p>
+      <ol>
+        <li>Open Terminal and run <code>claude</code> (or use Claude Code in your editor).</li>
+        <li>Send any message and wait for the reply.</li>
+        <li>Click the Gaugeline menu: your 5-hour and weekly limits appear.</li>
+      </ol>
+      <p>Still waiting? Check that:</p>
+      <ul>
+        <li>Settings › Claude shows a green check next to <em>Add status line command</em>, with "Added. Claude Code saves your limits after each reply."</li>
+        <li>You're signed in to Claude Code with a <strong>Pro or Max</strong> subscription (run <code>/status</code> in Claude Code). API-key sessions don't include rate limits.</li>
+        <li>Your Claude Code is up to date. Older versions don't pass rate limits to the status line.</li>
+        <li>If you set <code>CLAUDE_CONFIG_DIR</code> to a custom folder, Gaugeline needs access to <em>that</em> folder: Settings › Claude › <em>Revoke</em>, then <em>Grant Access…</em> and pick it.</li>
+        <li>Click <em>Check Now</em> in Settings › Claude › Status.</li>
+      </ul>
+    </details>
+    <details>
+      <summary>The numbers are dimmed and say "Last updated by Claude Code 2h ago"</summary>
+      <p>Gaugeline dims numbers that are more than 30 minutes old, because Claude Code only saves new ones when it replies. Send a message in Claude Code and they're current again. Once a window's reset time passes, Gaugeline knows that window has reset even without new data.</p>
+    </details>
+    <details>
+      <summary>I already had a custom status line. Did Gaugeline replace it?</summary>
+      <p>No. Gaugeline's command runs your existing command unchanged, so your status line keeps showing exactly as before. Your command sits verbatim between two marker lines, <code># gaugeline-v1-begin</code> and <code># gaugeline-v1-end</code>. <em>Remove from Claude Code</em> puts your original command back exactly.</p>
+    </details>
+    <details>
+      <summary>"Your status line was edited by hand — set it up manually."</summary>
+      <p>Someone (maybe you) edited Gaugeline's command in <code>settings.json</code>, so Gaugeline won't touch it. Either fix it by hand using the snippet under <em>Set up manually</em>, or remove it by hand (see <a href="#remove-manual">below</a>) and add it again.</p>
+    </details>
+    <details>
+      <summary>"Added by an older version of Gaugeline"</summary>
+      <p>Click <em>Update…</em> in Settings › Claude. You'll see the new command before anything changes, then click <em>Update in Claude Code</em>.</p>
+    </details>
+    <details>
+      <summary>"Claude Code's settings.json couldn't be read"</summary>
+      <p>Gaugeline never rewrites a <code>settings.json</code> it can't parse. Open <code>~/.claude/settings.json</code> in a text editor, fix the JSON error (often a trailing comma), and try again. Or use <em>Set up manually</em>. The same applies to "settings.json is a link Gaugeline can't follow".</p>
+    </details>
+    <details>
+      <summary>"Folder access needed"</summary>
+      <p>macOS no longer lets Gaugeline open the folder (for example after you moved it). Click <em>Grant Access…</em> and choose the folder again.</p>
+    </details>
+    <details>
+      <summary>Which files does Gaugeline touch in my .claude folder?</summary>
+      <ul>
+        <li><code>settings.json</code>: read, and changed only when you click <em>Add to Claude Code</em> or <em>Remove from Claude Code</em>. Only the <code>"statusLine"</code> entry is edited; the rest of the file, including its formatting, stays exactly as it was.</li>
+        <li><code>settings.json.gaugeline-backup</code>: a copy of your <code>settings.json</code> from before Gaugeline's first change. It's created once and never overwritten.</li>
+        <li><code>gaugeline-rate-limits.json</code>: the usage numbers Claude Code saves through the command, readable only by your user account.</li>
+      </ul>
+      <p>Gaugeline doesn't read your conversations, projects or credentials.</p>
+    </details>
+
+    <h2 id="remove">Removing Gaugeline from Claude Code</h2>
+    <details open>
+      <summary>From inside the app (recommended)</summary>
+      <p>Settings › Claude › <em>Remove from Claude Code</em>. This removes Gaugeline's command from <code>settings.json</code>, or puts back your own status line exactly if you had one, and deletes <code>gaugeline-rate-limits.json</code>. Do this <strong>before</strong> deleting the app.</p>
+      <p>If you click <em>Revoke</em> while the command is still added, Gaugeline asks "Remove from Claude Code first?". Choose <em>Remove &amp; Revoke</em>.</p>
+    </details>
+    <details id="remove-manual" open>
+      <summary>By hand (for example, if you already deleted the app)</summary>
+      <p>If the command stays after the app is gone, it's harmless: Claude Code keeps running it, it keeps saving that one small file, and your own status line (if any) keeps working. To remove it anyway:</p>
+      <ol>
+        <li>Open <code>~/.claude/settings.json</code> in a text editor and find the <code>"statusLine"</code> entry. If its <code>"command"</code> starts with <code># Gaugeline status line bridge</code>, it's Gaugeline's.</li>
+        <li>If nothing sits between <code># gaugeline-v1-begin\n</code> and <code># gaugeline-v1-end</code>, you had no status line before: delete the whole <code>"statusLine": { … }</code> entry (and the comma before or after it).</li>
+        <li>Otherwise, your original command is the text between <code># gaugeline-v1-begin\n</code> and <code>\n# gaugeline-v1-end</code>. Make that text the whole value of <code>"command"</code>.</li>
+        <li>Save the file.</li>
+      </ol>
+      <p>Or restore the backup. It is your <code>settings.json</code> from before Gaugeline first changed it, so check that it doesn't undo other changes you've made since:</p>
+<pre><code>diff ~/.claude/settings.json.gaugeline-backup ~/.claude/settings.json
+cp ~/.claude/settings.json.gaugeline-backup ~/.claude/settings.json</code></pre>
+      <p>Then delete the leftovers:</p>
+<pre><code>rm -f ~/.claude/gaugeline-rate-limits.json ~/.claude/gaugeline-rate-limits.json.* ~/.claude/settings.json.gaugeline-backup</code></pre>
+      <p>If you use <code>CLAUDE_CONFIG_DIR</code>, the same files are in that folder instead of <code>~/.claude</code>. Gaugeline's own settings live in <code>~/Library/Containers/com.victorshammas.gaugeline</code>, which you can delete too.</p>
+    </details>
+
+    <h2 id="codex">Codex</h2>
+    <details open>
+      <summary>How do I give Gaugeline access to my .codex folder?</summary>
+      <p>Settings › Codex › <em>Grant Access…</em> (or <em>Grant Access to .codex…</em> in the welcome window). The folder panel opens at your <code>.codex</code> folder; just click <em>Grant Access</em>. If it doesn't, press <kbd>⌘⇧G</kbd>, type <code>~/.codex</code> and press Return. Gaugeline only reads this folder, and only Codex's session logs in it. It never opens Codex's sign-in file.</p>
+    </details>
+    <details>
+      <summary>Codex shows "No Codex activity yet"</summary>
+      <p>Codex records your limits in its session logs while you use it. Run a Codex session with any prompt, then click <em>Check Now</em> in Settings › Codex. Make sure you're signed in to Codex with your ChatGPT account, not an API key. If you set <code>CODEX_HOME</code>, use <em>Choose Another Folder…</em> to pick that folder.</p>
+    </details>
+    <details>
+      <summary>How do I stop Gaugeline reading my .codex folder?</summary>
+      <p>Settings › Codex › <em>Revoke Access</em>. To hide Codex without revoking, turn off <em>Codex</em> in Settings › General › Services (or <em>Show Codex usage</em> in Settings › Codex).</p>
+    </details>
+
+    <h2 id="numbers">Numbers &amp; alerts</h2>
+    <details open>
+      <summary>My numbers differ from the tool's own usage screen</summary>
+      <p>Gaugeline shows the latest numbers your tools saved, and they only save them while you use them. Small differences are normal; they catch up after your next message. <em>Refresh Now</em> (<kbd>⌘R</kbd>) in the menu re-reads the files right away.</p>
+    </details>
+    <details>
+      <summary>What does "On pace to run out ~1d early" mean?</summary>
+      <p>Gaugeline compares how much of the limit you've used with how much of the window has passed. If you keep going at your current rate, you'll hit the limit about that long before it resets. The thin marker on each bar shows "even pace": where you'd be if you spread usage evenly.</p>
+    </details>
+    <details>
+      <summary>I'm not getting alerts</summary>
+      <p>Settings › General › Notifications: turn on <em>Alert me when a limit runs high</em> and set <em>Alert at</em>. <em>Also tell me when a limit resets</em> is optional. Click <em>Send Test Notification</em> to check. If you see "Notifications are turned off for Gaugeline", click <em>Open Notification Settings…</em> and allow them. Alerts fire once per window when fresh numbers cross your level.</p>
+    </details>
+    <details>
+      <summary>Launch at login</summary>
+      <p>Settings › General › <em>Open Gaugeline at login</em>. It's off until you turn it on. If you see "Waiting for approval in System Settings", click <em>Open Login Items…</em> and allow Gaugeline.</p>
+    </details>
+
+    <h2 id="demo">Demo mode</h2>
+    <details open>
+      <summary>Can I try it without Claude Code or Codex?</summary>
+      <p>Yes. In the welcome window, click <em>Just looking? Explore with demo data</em>, or go to Settings › About › <em>Show demo data</em>. The menu fills with sample numbers, marked "Demo data", so you can try bars, countdowns, pace forecasts and alerts. Click <em>Turn Off</em> in the menu, or turn off <em>Show demo data</em>, to see your real usage.</p>
+    </details>
+
+    <h2 id="contact">Contact</h2>
+    <p>Email <a href="mailto:victor.shammas@gmail.com?subject=Gaugeline%20support">victor.shammas@gmail.com</a>. It helps to include your macOS version, Gaugeline version (Settings › About), and which tool you're connecting. Please don't send credentials or the contents of your <code>.claude</code>/<code>.codex</code> folders.</p>
+    <p>Refunds for App Store purchases are handled by Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+    <p class="fineprint" style="margin-top:32px">Gaugeline is an independent app and is not affiliated with, endorsed by or sponsored by Anthropic or OpenAI.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="./">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="mailto:victor.shammas@gmail.com">Contact</a></nav>
+    <p>Claude and Claude Code are trademarks of Anthropic, PBC. OpenAI, Codex and ChatGPT are trademarks of OpenAI. © 2026 Victor Shammas</p>
+  </div>
+</footer>
+</body>
+</html>

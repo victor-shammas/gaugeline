@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gaugeline: AI usage limits in your Mac menu bar</title>
+<meta name="description" content="Gaugeline shows your AI coding tools' 5-hour and weekly usage limits in the Mac menu bar, with reset countdowns and pace forecasts. No account, no network. Works with Claude Code and OpenAI Codex.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:title" content="Gaugeline">
+<meta property="og:description" content="Your AI coding limits, at a glance in the Mac menu bar. No account, no network.">
+<meta property="og:image" content="https://victorshammas.com/gaugeline/icon.png">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Gaugeline</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#features" class="hide-sm">Features</a>
+      <a href="#privacy" class="hide-sm">Privacy</a>
+      <a href="support.html">Support</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <img class="hero-icon" src="icon.png" alt="Gaugeline app icon" width="96" height="96">
+        <h1>Know your AI coding limits before you hit them.</h1>
+        <p class="lede">Gaugeline puts your 5-hour and weekly usage limits in the Mac menu bar, with reset countdowns and a pace forecast that warns you when you're on track to run out early.</p>
+        <div class="cta-row">
+          <!-- At launch, replace with: <a class="btn" href="https://apps.apple.com/app/idAPP_ID">Download on the Mac App Store <small>$1.99</small></a> (see README.md). -->
+          <span class="btn" aria-disabled="true">Coming soon to the Mac App Store <small>$1.99</small></span>
+          <span class="fineprint">macOS 15 or later · Works with Claude Code and OpenAI Codex</span>
+        </div>
+      </div>
+
+      <figure class="mock" aria-label="Illustration of the Gaugeline menu with sample numbers" role="img">
+        <div class="mock-bar"><span><b>C</b> 5h 42% 7d 81%</span><span><b>X</b> 5h <b>93%</b> 7d 41%</span><span>Thu 9:41</span></div>
+        <h4>Claude</h4>
+        <div class="row"><span class="label">5-hour</span><span class="bar ok"><i style="width:42%"></i><em style="left:35%"></em></span><span class="pct">42%</span>
+          <span class="meta">Resets in 3h 14m</span></div>
+        <div class="row"><span class="label">Weekly</span><span class="bar warn"><i style="width:81%"></i><em style="left:69%"></em></span><span class="pct">81%</span>
+          <span class="meta">Resets in 2d 4h · <span class="alert">On pace to run out ~1d early</span></span></div>
+        <div class="sep"></div>
+        <h4>Codex</h4>
+        <div class="row"><span class="label">5-hour</span><span class="bar bad"><i style="width:93%"></i><em style="left:72%"></em></span><span class="pct">93%</span>
+          <span class="meta">Resets in 1h 25m</span></div>
+        <div class="row"><span class="label">Weekly</span><span class="bar ok"><i style="width:41%"></i><em style="left:39%"></em></span><span class="pct">41%</span>
+          <span class="meta">Resets in 4d 7h</span></div>
+        <div class="sep"></div>
+        <p class="demo">Sample numbers</p>
+      </figure>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <h2>Everything you need, nothing you don't.</h2>
+      <p class="section-lede">One glance at the menu bar tells you whether to keep going, slow down or wait for the reset.</p>
+      <div class="grid">
+        <div class="card"><h3>Both limit windows</h3><p>The 5-hour window and the weekly limit for each tool, right in the menu bar, as percent used or percent remaining, or as tiny gauges. Show one tool or both, and pick which limits appear.</p></div>
+        <div class="card"><h3>Colored bars</h3><p>Green, yellow, orange, red. You can read it from across the room. Numbers that haven't been updated for a while are dimmed, so you know.</p></div>
+        <div class="card"><h3>Reset countdowns</h3><p>Know exactly when each window resets, down to the minute.</p></div>
+        <div class="card"><h3>Pace forecast</h3><p>An even-pace marker on every bar and a plain-English warning: "On pace to run out ~1d early."</p></div>
+        <div class="card"><h3>Alerts</h3><p>Optional notifications when a limit passes a level you choose, and when it resets.</p></div>
+        <div class="card"><h3>Demo mode</h3><p>Explore every feature with sample numbers before connecting anything.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="how">
+    <div class="wrap">
+      <h2>How it works</h2>
+      <p class="section-lede">Your coding tools already save your limits on your Mac. Gaugeline just shows them.</p>
+      <div class="steps">
+        <div class="card"><h3>Grant folder access once</h3><p>Pick your <code>.claude</code> and/or <code>.codex</code> folder in the standard macOS folder picker. Gaugeline is sandboxed and sees nothing else.</p></div>
+        <div class="card"><h3>See exactly what's added</h3><p>For Claude Code, Gaugeline shows you the one status line setting it adds, and adds it only when you click Add. It backs up your settings first, keeps any status line you already have, and removes itself in one click. For Codex, there's nothing to install.</p></div>
+        <div class="card"><h3>Just keep coding</h3><p>Every time you use those tools, the numbers update. No sign-in, no API keys, no network.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="privacy">
+    <div class="wrap">
+      <h2>Private by design</h2>
+      <p class="section-lede">There is no Gaugeline account, no Gaugeline server, and the app has no network access at all. Your data has nowhere to go.</p>
+      <ul class="checks">
+        <li>No accounts, no sign-in</li>
+        <li>No analytics, tracking or ads</li>
+        <li>Reads only the folders you choose</li>
+        <li>Never reads, keeps or sends your prompts or code</li>
+        <li>Sandboxed, native Swift app</li>
+        <li>No network connections, ever</li>
+      </ul>
+      <p style="margin-top:22px"><a href="privacy.html">Read the full privacy policy</a></p>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap narrow">
+      <h2>Requirements</h2>
+      <ul>
+        <li>macOS 15 Sequoia or later</li>
+        <li>Claude Code signed in with a Claude Pro or Max plan, and/or Codex signed in with a ChatGPT plan. Usage limits are reported for subscription plans, not API keys.</li>
+      </ul>
+      <p>Questions? See <a href="support.html">Support &amp; FAQ</a>.</p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="./">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="mailto:victor.shammas@gmail.com">Contact</a></nav>
+    <p>Gaugeline is an independent app. It is not affiliated with, endorsed by or sponsored by Anthropic or OpenAI. Claude and Claude Code are trademarks of Anthropic, PBC. OpenAI, Codex and ChatGPT are trademarks of OpenAI. Mac and Mac App Store are trademarks of Apple Inc.</p>
+    <p>© 2026 Victor Shammas</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy · Gaugeline</title>
+<meta name="description" content="Gaugeline privacy policy: no accounts, no servers, no analytics, no network access. Your usage data stays on your Mac.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="icon.png" alt="" width="30" height="30">Gaugeline</a>
+    <nav class="nav" aria-label="Main">
+      <a href="./" class="hide-sm">Home</a>
+      <a href="support.html">Support</a>
+      <a href="privacy.html" aria-current="page">Privacy</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="wrap narrow">
+    <h1>Privacy Policy</h1>
+    <p class="meta-line">Effective date: October 1, 2026</p>
+
+    <div class="tldr">
+      <strong>The short version</strong>
+      <ul>
+        <li>Gaugeline has no accounts, no servers, no analytics and no ads.</li>
+        <li>It makes no network connections at all. The app doesn't even have permission to use the network.</li>
+        <li>It reads usage numbers that your AI coding tools already save on your Mac, and shows them to you. That data never leaves your Mac.</li>
+        <li>I (the developer) never receive any of your data.</li>
+      </ul>
+    </div>
+
+    <p>This policy explains what the Gaugeline app for macOS ("Gaugeline", "the app") reads, what it stores, and what it never does. Gaugeline is made by Victor Shammas, an independent developer ("I", "me").</p>
+
+    <h2>1. What Gaugeline reads</h2>
+    <p>Gaugeline can only see folders that you explicitly choose in the standard macOS folder panel. It runs in Apple's App Sandbox, so it can't browse the rest of your Mac.</p>
+    <table class="stack">
+      <thead><tr><th>Source</th><th>What is read</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td>Your <code>.claude</code> folder (if you connect Claude Code)</td>
+            <td data-label="Read"><code>settings.json</code>, to see whether Gaugeline's status line command is added, and <code>gaugeline-rate-limits.json</code>, the file that command saves</td>
+            <td data-label="Why">To show your Claude Code 5-hour and weekly usage percentages and reset times.</td></tr>
+        <tr><td>Your <code>.codex</code> folder (if you connect Codex)</td>
+            <td data-label="Read">Codex's local session logs, which Gaugeline scans only for the rate-limit snapshots Codex records. Read-only. Gaugeline never opens Codex's sign-in file (<code>auth.json</code>).</td>
+            <td data-label="Why">To show your Codex 5-hour and weekly usage percentages and reset times.</td></tr>
+      </tbody>
+    </table>
+    <p>Some of these files, such as Codex session logs and the data Claude Code passes to its status line, also contain other information, for example the folder you're working in or parts of your conversations. Gaugeline extracts <strong>only</strong> the usage figures (percent used, window length and reset time). It does not keep, display or transmit your prompts, your code or anything else from those files.</p>
+
+    <h2>2. What Gaugeline changes on your Mac</h2>
+    <ul>
+      <li><strong>Claude Code settings, only when you click "Add to Claude Code".</strong> Before anything changes, Gaugeline shows you the exact setting it will add. It then edits only the <code>"statusLine"</code> entry of <code>~/.claude/settings.json</code>; everything else in the file, including its formatting, stays as it was. Before its first change it saves a copy of your file as <code>settings.json.gaugeline-backup</code>; that copy is created once and never overwritten. If you already had a status line, it keeps working inside Gaugeline's command, and "Remove from Claude Code" restores it exactly.</li>
+      <li><strong>The status line command</strong> is a short shell script that Claude Code (not Gaugeline) runs after each reply. It saves the usage data Claude Code gives it to <code>~/.claude/gaugeline-rate-limits.json</code>, readable only by your user account. It uses only standard shell tools and makes no network connections.</li>
+      <li><strong>Gaugeline's own preferences</strong> (your settings, alert thresholds, folder-access bookmarks) are stored in its sandbox container on your Mac.</li>
+    </ul>
+
+    <h2>3. Network use</h2>
+    <p>None. Gaugeline makes <strong>no network requests at all</strong>, and it is built without the macOS permission to make them. The links in Settings › About (Website, Privacy Policy, Support) open in your web browser, not in Gaugeline.</p>
+
+    <h2>4. What Gaugeline never does</h2>
+    <ul>
+      <li>No accounts or sign-in with Gaugeline.</li>
+      <li>No analytics, telemetry, crash-reporting services, advertising or tracking SDKs.</li>
+      <li>No servers run by me. Nothing is uploaded to me or to any third party on my behalf.</li>
+      <li>No selling or sharing of data, because I don't have any of your data.</li>
+      <li>No tracking across apps or websites.</li>
+    </ul>
+
+    <h2>5. Notifications and launch at login</h2>
+    <p>Usage alerts are local notifications that your Mac creates; no push server is involved. "Open Gaugeline at login" is off until you turn it on, and uses the standard macOS login-item service.</p>
+
+    <h2>6. Apple</h2>
+    <p>You buy and download Gaugeline through the Mac App Store. Apple processes your purchase under <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>. Apple may share anonymous sales and, if you opt in to sharing with developers, crash statistics with me. These never include the contents of your usage data.</p>
+
+    <h2>7. Removing your data</h2>
+    <ul>
+      <li>To remove Gaugeline from Claude Code, use Settings › Claude › <em>Remove from Claude Code</em> before deleting the app. Your original status line, if you had one, comes back exactly, and <code>gaugeline-rate-limits.json</code> is deleted. If you already deleted the app, see <a href="support.html#remove-manual">Support</a> for the manual steps; until then the command stays harmless.</li>
+      <li>To revoke folder access, use Settings › Claude › <em>Revoke</em> or Settings › Codex › <em>Revoke Access</em>.</li>
+      <li>To remove everything, delete Gaugeline from Applications, then delete its container folder <code>~/Library/Containers/com.victorshammas.gaugeline</code> (macOS keeps this folder when you delete an app), <code>~/.claude/gaugeline-rate-limits.json</code> and <code>~/.claude/settings.json.gaugeline-backup</code>.</li>
+    </ul>
+
+    <h2>8. Children</h2>
+    <p>Gaugeline is a developer tool rated 4+. It collects no personal information from anyone, including children.</p>
+
+    <h2>9. Changes to this policy</h2>
+    <p>If this policy changes, the new version will be posted on this page with a new effective date. If a change ever adds data collection, it will be announced in the app's release notes before it takes effect.</p>
+
+    <h2>10. Contact</h2>
+    <p>Questions about privacy? Email <a href="mailto:victor.shammas@gmail.com">victor.shammas@gmail.com</a>.</p>
+
+    <p class="fineprint" style="margin-top:32px">Gaugeline is an independent app and is not affiliated with, endorsed by or sponsored by Anthropic or OpenAI.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer"><a href="./">Home</a><a href="support.html">Support</a><a href="privacy.html">Privacy Policy</a><a href="mailto:victor.shammas@gmail.com">Contact</a></nav>
+    <p>Claude and Claude Code are trademarks of Anthropic, PBC. OpenAI, Codex and ChatGPT are trademarks of OpenAI. © 2026 Victor Shammas</p>
+  </div>
+</footer>
+</body>
+</html>
