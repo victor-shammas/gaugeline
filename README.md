@@ -22,8 +22,8 @@ Your GitHub Pages **user site** (the `victor-shammas.github.io` repo) already us
 2. Copy the *contents* of this folder (including `.nojekyll`) to the root of that repo, then commit and push to `main`:
    ```bash
    git clone https://github.com/victor-shammas/gaugeline.git
-   cp -R app/AppStore/site/. gaugeline/
-   rm gaugeline/README.md   # optional: keep or replace with a repo README
+   cp -R AppStore/site/. ../gaugeline-site/   # a clone of victor-shammas/gaugeline
+   (the site repo is already set up; just copy, commit and push)
    cd gaugeline && git add -A && git commit -m "Gaugeline website" && git push
    ```
 3. Go to the repo › **Settings › Pages** › Build and deployment › Source: **Deploy from a branch**, Branch: **main**, folder **/ (root)**, then Save. Leave the "Custom domain" field there empty; it's inherited from the user site.
