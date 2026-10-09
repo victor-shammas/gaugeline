@@ -181,7 +181,7 @@ footer a { color: var(--muted); }
 .badge-claude { background: #ED9940; }
 .badge-codex { background: #6B7380; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .62em; letter-spacing: -.04em; }
 
-/* App bar: the family of apps, shared by every site (Plainview, Gaugeline, Quoth). */
+/* App bar: the family of apps, shared by every site (Plainview, Gaugeline, Quoth, Staple). */
 .app-bar { border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0 8px; }
 .app-bar + footer { margin-top: 0; border-top: 0; }
 .app-bar-title { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
