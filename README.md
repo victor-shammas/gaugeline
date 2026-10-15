@@ -24,9 +24,9 @@ After changing a page, open all three URLs above, plus `support.html#remove`, an
 
 If Pages ever needs setting up again: repo › **Settings › Pages** › Build and deployment › Source: **Deploy from a branch**, Branch: **main**, folder **/ (root)**. Leave "Custom domain" empty; it's inherited from the user site. If `https://victorshammas.com/gaugeline/` returns 404, check that the user site's custom domain is still set and verified (user site repo › Settings › Pages), and that this repo is named `gaugeline` in lowercase.
 
-## Before or after launch
+## Upkeep
 
-- **App Store link:** `index.html` contains a placeholder `https://apps.apple.com/app/idAPP_ID`. Once the app record exists, replace `APP_ID` with the numeric Apple ID shown in App Store Connect › App Information. The link works (as "not yet available") before release.
+- **App Store link:** `index.html` links to `https://apps.apple.com/app/gaugeline-ai-usage-meter/id6818300359?mt=12` (Apple ID 6818300359). Leave out the country code (`/no/`, `/us/`): Apple sends each visitor to their own storefront.
 - **Official badge (optional):** to use Apple's "Download on the Mac App Store" badge instead of the text button, download it from https://developer.apple.com/app-store/marketing/guidelines/ and follow Apple's badge rules (unaltered artwork, minimum size, clear space).
 - Regenerate the icons after an icon change (paths relative to a `gaugeline-app` checkout's `AppStore/` folder):
   ```bash
