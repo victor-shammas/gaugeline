@@ -181,7 +181,7 @@ footer a { color: var(--muted); }
 .badge-claude { background: #ED9940; }
 .badge-codex { background: #6B7380; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .62em; letter-spacing: -.04em; }
 
-/* App bar: the family of apps, shared by every site (Plainview, Gaugeline, Quoth, Staple, Claude Usage Meter, Lectern, Commonplace). */
+/* App bar: the family of apps, shared by every site (Plainview, Gaugeline, Quoth, Staple, Claude Usage Meter, Lectern, Commonplace, Verbatim). */
 .app-bar { border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0 8px; }
 .app-bar + footer { margin-top: 0; border-top: 0; }
 .app-bar-title { color: var(--muted); font-size: 14px; margin: 0 0 12px; }
@@ -199,7 +199,7 @@ footer a { color: var(--muted); }
 .app-tile small { color: var(--muted); font-size: 13px; }
 .app-tile em { color: var(--accent); font-size: 12px; font-style: normal; font-weight: 600; }
 .app-tile.current { box-shadow: inset 0 0 0 1px var(--accent); border-color: var(--accent); }
-/* Seven apps: four across, then three; icon beside the text. */
+/* Eight apps: four across, two rows; icon beside the text. */
 @media (max-width: 1000px) { .app-tiles { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 760px) { .app-tiles { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 560px) { .app-tiles { grid-template-columns: 1fr; } }
